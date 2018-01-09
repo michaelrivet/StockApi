@@ -48,15 +48,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlphaConnection.cs" />
-    <Compile Include="AlphaConnection\AlphaConnectionService.cs" />
-    <Compile Include="AlphaConnection\Data\AlphaVantageRootObject.cs" />
-    <Compile Include="AlphaConnection\Data\ApiParam.cs" />
-    <Compile Include="AlphaConnection\Data\MetaData.cs" />
-    <Compile Include="AlphaConnection\Data\TechnicalDataDate.cs" />
-    <Compile Include="AlphaConnection\Data\TechnicalDataObject.cs" />
+    <Compile Include="AlphaConnection\Service\AlphaConnectionService.cs" />
+    <Compile Include="AlphaConnection\Core\AlphaVantageRootObject.cs" />
+    <Compile Include="AlphaConnection\Core\ApiParam.cs" />
+    <Compile Include="AlphaConnection\Core\MetaData.cs" />
+    <Compile Include="AlphaConnection\Core\Stock.cs" />
+    <Compile Include="AlphaConnection\Core\StockList.cs" />
+    <Compile Include="AlphaConnection\Core\StockPrice.cs" />
+    <Compile Include="AlphaConnection\Core\TechnicalDataDate.cs" />
+    <Compile Include="AlphaConnection\Core\TechnicalDataObject.cs" />
+    <Compile Include="AlphaConnection\Interface\IStockApiConnection.cs" />
     <Compile Include="FromGITHUB.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AlphaConnection\Repositories\HardCodedStockListRepository.cs" />
+    <Compile Include="AlphaConnection\Repositories\Interface\IStockListRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

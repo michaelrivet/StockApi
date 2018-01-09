@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 using System.Net.Http;
+using AlphaAdvantageConsole.AlphaConnection.Core;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 
 namespace AlphaAdvantageConsole
-{
+{/*
     public class AlphaVantageRootObject
     {
         public MetaData MetaData;
@@ -64,7 +64,7 @@ namespace AlphaAdvantageConsole
             stringRequest += "&apikey=" + apiKey;
 
             Int16 apiData = await CallAlphaVantageApi(stringRequest);
-            stock.priceList.Add(new StockPrice(DateTime.Now, "12", "", "", "", ""));
+            stock.PriceList.Add(new StockPrice(DateTime.Now, "12", "", "", "", ""));
             return apiData;
         }
 
@@ -88,9 +88,6 @@ namespace AlphaAdvantageConsole
                         //string volume = newtmp["Time Series (Daily)"].ElementAt(1).ElementAt(0).ElementAt(0).ElementAt(4).ToString();
                     }
 
-
-
-
                     var temp = JsonConvert.DeserializeObject<JObject>(res);
                     return 12;
                 }
@@ -103,5 +100,5 @@ namespace AlphaAdvantageConsole
         }
 
 
-    }
+    }*/
 }
