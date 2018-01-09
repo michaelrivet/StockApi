@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlphaConnection.cs" />
+    <Compile Include="AlphaConnection\AlphaConnectionService.cs" />
+    <Compile Include="AlphaConnection\Data\AlphaVantageRootObject.cs" />
+    <Compile Include="AlphaConnection\Data\ApiParam.cs" />
+    <Compile Include="AlphaConnection\Data\MetaData.cs" />
+    <Compile Include="AlphaConnection\Data\TechnicalDataDate.cs" />
+    <Compile Include="AlphaConnection\Data\TechnicalDataObject.cs" />
     <Compile Include="FromGITHUB.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

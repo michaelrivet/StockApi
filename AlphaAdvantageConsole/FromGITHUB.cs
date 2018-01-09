@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -10,7 +11,6 @@ namespace AlphaAdvantageConsole
 {
     public static class FromGITHUB
     {
-
         public static async Task<AlphaVantageRootObject> GetTechnical(List<ApiParam> parameters, string apiKey)
         {
             var stringRequest = parameters.Aggregate(@"https://www.alphavantage.co/query?", (current, param) => current + param.ToApiString());

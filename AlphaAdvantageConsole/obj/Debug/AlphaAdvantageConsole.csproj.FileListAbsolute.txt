@@ -14,3 +14,12 @@ C:\Users\Alex\Downloads\AlphaAdvantageConsole\AlphaAdvantageConsole\AlphaAdvanta
 C:\Users\Alex\Downloads\AlphaAdvantageConsole\AlphaAdvantageConsole\AlphaAdvantageConsole\bin\Debug\AlphaAdvantageConsole.pdb
 C:\Users\Alex\Downloads\AlphaAdvantageConsole\AlphaAdvantageConsole\AlphaAdvantageConsole\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Alex\Downloads\AlphaAdvantageConsole\AlphaAdvantageConsole\AlphaAdvantageConsole\bin\Debug\Newtonsoft.Json.xml
+C:\MikeR\StockApi\AlphaAdvantageConsole\bin\Debug\AlphaAdvantageConsole.exe.config
+C:\MikeR\StockApi\AlphaAdvantageConsole\bin\Debug\AlphaAdvantageConsole.exe
+C:\MikeR\StockApi\AlphaAdvantageConsole\bin\Debug\AlphaAdvantageConsole.pdb
+C:\MikeR\StockApi\AlphaAdvantageConsole\bin\Debug\Newtonsoft.Json.dll
+C:\MikeR\StockApi\AlphaAdvantageConsole\bin\Debug\Newtonsoft.Json.xml
+C:\MikeR\StockApi\AlphaAdvantageConsole\obj\Debug\AlphaAdvantageConsole.csprojResolveAssemblyReference.cache
+C:\MikeR\StockApi\AlphaAdvantageConsole\obj\Debug\AlphaAdvantageConsole.csproj.CoreCompileInputs.cache
+C:\MikeR\StockApi\AlphaAdvantageConsole\obj\Debug\AlphaAdvantageConsole.exe
+C:\MikeR\StockApi\AlphaAdvantageConsole\obj\Debug\AlphaAdvantageConsole.pdb

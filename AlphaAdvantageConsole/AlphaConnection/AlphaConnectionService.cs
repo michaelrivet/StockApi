@@ -1,63 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-
-using System.Net.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-
-namespace AlphaAdvantageConsole
+namespace AlphaAdvantageConsole.AlphaConnection
 {
-    public class AlphaVantageRootObject
+    class AlphaConnectionService
     {
-        public MetaData MetaData;
-        public List<TechnicalDataDate> TechnicalsByDate;
-    }
+        private readonly string _apiKey;
 
-    public class MetaData
-    {
-        public string Function;
-        public string Interval;
-        public string SeriesType;
-        public string Symbol;
-    }
-
-    public class TechnicalDataDate
-    {
-        public DateTime Date;
-        public List<TechnicalDataObject> Data;
-    }
-
-    public class TechnicalDataObject
-    {
-        public string TechnicalKey { get; set; }
-        public double TechnicalValue { get; set; }
-    }
-
-    public class ApiParam
-    {
-        public string ParamName;
-        public string ParamValue;
-
-        public ApiParam(string paramNameIn, string paramValueIn)
+        public AlphaConnectionService(string apiKey)
         {
-            ParamName = paramNameIn;
-            ParamValue = paramValueIn;
+            _apiKey = apiKey;
         }
 
-        public string ToApiString()
-        {
-            return $"&{ParamName}={ParamValue}";
-        }
-    }
-
-    class AlphaConnections
-    {
-
-        public static async Task<Int16> GetTechnical(List<ApiParam> parameters, string apiKey,Stock stock)
+        public static async Task<short> GetAlphaData(List<ApiParam> parameters, string apiKey, Stock stock)
         {
 
             var stringRequest = parameters.Aggregate(@"https://www.alphavantage.co/query?", (current, param) => current + param.ToApiString());
@@ -68,7 +29,7 @@ namespace AlphaAdvantageConsole
             return apiData;
         }
 
-        public static async Task<Int16> CallAlphaVantageApi(string stringRequest)
+        public static async Task<short> CallAlphaVantageApi(string stringRequest)
         {
             try
             {
@@ -87,10 +48,7 @@ namespace AlphaAdvantageConsole
                         //string close = newtmp["Time Series (Daily)"].ElementAt(1).ElementAt(0).ElementAt(0).ElementAt(3).ToString();
                         //string volume = newtmp["Time Series (Daily)"].ElementAt(1).ElementAt(0).ElementAt(0).ElementAt(4).ToString();
                     }
-
-
-
-
+                    
                     var temp = JsonConvert.DeserializeObject<JObject>(res);
                     return 12;
                 }
@@ -101,7 +59,5 @@ namespace AlphaAdvantageConsole
                 return 0;
             }
         }
-
-
     }
 }
