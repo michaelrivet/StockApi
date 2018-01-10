@@ -13,6 +13,8 @@ namespace AlphaAdvantageConsole
     {
         static async Task Main(string[] args)
         {
+            // Testing branching
+
             Console.WriteLine("Start Program");
 
             var hardCodedStockListRetriever = new HardCodedStockListRepository();
