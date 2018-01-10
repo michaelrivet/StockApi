@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using AlphaAdvantageConsole.AlphaConnection.Core;
 using AlphaAdvantageConsole.AlphaConnection.Interface;
+using AlphaAdvantageConsole.AlphaConnection.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -33,34 +34,36 @@ namespace AlphaAdvantageConsole.AlphaConnection.Service
 
         private async Task<short> CallAlphaVantageApi(string stringRequest)
         {
-            try
-            {
-                using (var client = new HttpClient())
-                {
-                    var res = await client.GetStringAsync(stringRequest);
-                    var newtmp = JsonConvert.DeserializeObject<JObject>(res);
-
-                    var test = newtmp["Time Series (Daily)"].First.First.First;
-
-                    for (int i = 0; i < newtmp["Time Series (Daily)"].Count(); i++)
-                    {
-                        //string open = newtmp["Time Series (Daily)"].ElementAt(1).ElementAt(0).ElementAt(0).ElementAt(0).ToString();
-                        //string high = newtmp["Time Series (Daily)"].ElementAt(1).ElementAt(0).ElementAt(0).ElementAt(1).ToString();
-                        //string low = newtmp["Time Series (Daily)"].ElementAt(1).ElementAt(0).ElementAt(0).ElementAt(2).ToString();
-                        //string close = newtmp["Time Series (Daily)"].ElementAt(1).ElementAt(0).ElementAt(0).ElementAt(3).ToString();
-                        //string volume = newtmp["Time Series (Daily)"].ElementAt(1).ElementAt(0).ElementAt(0).ElementAt(4).ToString();
-                    }
+            var client = new HttpClient();
+            var res = await client.GetStringAsync(stringRequest);
+            var alphaStock = JsonConvert.DeserializeObject<AlphaStockModel>(res);
+            alphaStock.TimeSeries = new List<StockDailyModel>();
                     
-                    var temp = JsonConvert.DeserializeObject<JObject>(res);
-                    return 12;
-                }
-            }
-            catch (Exception e)
+            var temp = JsonConvert.DeserializeObject<JObject>(res);
+            var timeSeries = temp["Time Series (Daily)"];
+            foreach (var time in timeSeries)
             {
-                //fatal error
-                return 0;
+                var date = ((Newtonsoft.Json.Linq.JProperty) time).Name;
+                var open = time.Children().Values("1. open").ToList()[0].Value<string>();
+                var high = time.Children().Values("2. high").ToList()[0].Value<string>();
+                var low = time.Children().Values("3. low").ToList()[0].Value<string>();
+                var close = time.Children().Values("4. close").ToList()[0].Value<string>();
+                var volume = time.Children().Values("5. volume").ToList()[0].Value<string>();
+
+                var dailyModel = new StockDailyModel
+                {
+                    Date = date,
+                    Open = open,
+                    High = high,
+                    Low = low,
+                    Close = close,
+                    Volume = volume
+                };
+                    
+                alphaStock.TimeSeries.Add(dailyModel);    
             }
 
+            return 12;
         }
     }
 }

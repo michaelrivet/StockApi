@@ -48,6 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlphaConnection.cs" />
+    <Compile Include="AlphaConnection\Interface\IConnectionService.cs" />
+    <Compile Include="AlphaConnection\Model\AlphaStockModel.cs" />
+    <Compile Include="AlphaConnection\Model\StockDailyModel.cs" />
+    <Compile Include="AlphaConnection\Model\StockMetaData.cs" />
     <Compile Include="AlphaConnection\Service\AlphaConnectionService.cs" />
     <Compile Include="AlphaConnection\Core\AlphaVantageRootObject.cs" />
     <Compile Include="AlphaConnection\Core\ApiParam.cs" />
