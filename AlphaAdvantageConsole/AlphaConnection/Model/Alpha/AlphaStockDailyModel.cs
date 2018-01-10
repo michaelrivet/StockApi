@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace AlphaAdvantageConsole.AlphaConnection.Model
+namespace AlphaAdvantageConsole.AlphaConnection.Alpha
 {
-    public class StockDailyModel
+    public class AlphaStockDailyModel
     {
         public string Date { get; set; }
         [JsonProperty("1. open")]

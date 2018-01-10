@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
-namespace AlphaAdvantageConsole.AlphaConnection.Model
+namespace AlphaAdvantageConsole.AlphaConnection.Model.Alpha
 {
-    public class StockMetaData
+    public class AlphaStockMetaData
     {
         [JsonProperty("1. Information")]
         public string Information { get; set; }

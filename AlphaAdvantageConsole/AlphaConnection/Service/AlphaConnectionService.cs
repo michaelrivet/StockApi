@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using AlphaAdvantageConsole.AlphaConnection.Core;
 using AlphaAdvantageConsole.AlphaConnection.Interface;
-using AlphaAdvantageConsole.AlphaConnection.Model;
+using AlphaAdvantageConsole.AlphaConnection.Model.Alpha;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -15,11 +15,13 @@ namespace AlphaAdvantageConsole.AlphaConnection.Service
     {
         private readonly string _apiUrl;
         private readonly string _apiKey;
+        private readonly IStockModelDataBinder<AlphaStockModel> _dataBinder;
 
         public AlphaConnectionService(string apiUrl, string apiKey)
         {
             _apiUrl = apiUrl;
             _apiKey = apiKey;
+            _dataBinder = new AlphaStockModelDataBinder<AlphaStockModel>();
         }
 
         public async Task<short> GetData(List<ApiParam> parameters, Stock stock)
@@ -36,32 +38,7 @@ namespace AlphaAdvantageConsole.AlphaConnection.Service
         {
             var client = new HttpClient();
             var res = await client.GetStringAsync(stringRequest);
-            var alphaStock = JsonConvert.DeserializeObject<AlphaStockModel>(res);
-            alphaStock.TimeSeries = new List<StockDailyModel>();
-                    
-            var temp = JsonConvert.DeserializeObject<JObject>(res);
-            var timeSeries = temp["Time Series (Daily)"];
-            foreach (var time in timeSeries)
-            {
-                var date = ((Newtonsoft.Json.Linq.JProperty) time).Name;
-                var open = time.Children().Values("1. open").ToList()[0].Value<string>();
-                var high = time.Children().Values("2. high").ToList()[0].Value<string>();
-                var low = time.Children().Values("3. low").ToList()[0].Value<string>();
-                var close = time.Children().Values("4. close").ToList()[0].Value<string>();
-                var volume = time.Children().Values("5. volume").ToList()[0].Value<string>();
-
-                var dailyModel = new StockDailyModel
-                {
-                    Date = date,
-                    Open = open,
-                    High = high,
-                    Low = low,
-                    Close = close,
-                    Volume = volume
-                };
-                    
-                alphaStock.TimeSeries.Add(dailyModel);    
-            }
+            var alphaStock = _dataBinder.GenerateModel(res);
 
             return 12;
         }

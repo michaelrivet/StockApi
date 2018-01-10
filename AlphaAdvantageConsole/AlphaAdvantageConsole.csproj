@@ -48,14 +48,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlphaConnection.cs" />
-    <Compile Include="AlphaConnection\Interface\IConnectionService.cs" />
-    <Compile Include="AlphaConnection\Model\AlphaStockModel.cs" />
-    <Compile Include="AlphaConnection\Model\StockDailyModel.cs" />
-    <Compile Include="AlphaConnection\Model\StockMetaData.cs" />
-    <Compile Include="AlphaConnection\Service\AlphaConnectionService.cs" />
-    <Compile Include="AlphaConnection\Core\AlphaVantageRootObject.cs" />
+    <Compile Include="AlphaConnection\Core\AlphaStockModelDataBinder.cs" />
     <Compile Include="AlphaConnection\Core\ApiParam.cs" />
-    <Compile Include="AlphaConnection\Core\MetaData.cs" />
+    <Compile Include="AlphaConnection\Enums\AlphaIntradayInterval.cs" />
+    <Compile Include="AlphaConnection\Interface\IConnectionService.cs" />
+    <Compile Include="AlphaConnection\Interface\IStockModelDataBinder.cs" />
+    <Compile Include="AlphaConnection\Model\Alpha\AlphaStockModel.cs" />
+    <Compile Include="AlphaConnection\Model\Alpha\AlphaStockDailyModel.cs" />
+    <Compile Include="AlphaConnection\Model\Alpha\AlphaStockMetaData.cs" />
+    <Compile Include="AlphaConnection\Model\BaseStockModel.cs" />
+    <Compile Include="AlphaConnection\Service\AlphaConnectionService.cs" />
     <Compile Include="AlphaConnection\Core\Stock.cs" />
     <Compile Include="AlphaConnection\Core\StockList.cs" />
     <Compile Include="AlphaConnection\Core\StockPrice.cs" />
