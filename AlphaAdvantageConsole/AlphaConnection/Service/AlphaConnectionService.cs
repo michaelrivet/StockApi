@@ -56,5 +56,22 @@ namespace AlphaAdvantageConsole.AlphaConnection.Service
 
             return uri;
         }
+
+        private class ApiParam
+        {
+            public string ParamName;
+            public string ParamValue;
+
+            public ApiParam(string paramNameIn, string paramValueIn)
+            {
+                ParamName = paramNameIn;
+                ParamValue = paramValueIn;
+            }
+
+            public string ToApiString()
+            {
+                return $"&{ParamName}={ParamValue}";
+            }
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace AlphaAdvantageConsole
 {
     public static class FromGITHUB
     {
-        public static async Task<AlphaVantageRootObject> GetTechnical(List<ApiParam> parameters, string apiKey)
+        /*public static async Task<AlphaVantageRootObject> GetTechnical(List<ApiParam> parameters, string apiKey)
         {
             var stringRequest = parameters.Aggregate(@"https://www.alphavantage.co/query?", (current, param) => current + param.ToApiString());
             stringRequest += "&apikey=" + apiKey;
@@ -44,7 +44,7 @@ namespace AlphaAdvantageConsole
             return technicalsObject;
         }
 
-        
+        */
 
         public static string ToDescription(this Enum enumeration)
         {
