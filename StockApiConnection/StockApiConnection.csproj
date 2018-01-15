@@ -43,8 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Service\IStockModelDataBinderService.cs" />
-    <Compile Include="Core\Stock.cs" />
-    <Compile Include="Core\StockPrice.cs" />
     <Compile Include="Model\StockDailyModel.cs" />
     <Compile Include="Model\StockMetaData.cs" />
     <Compile Include="Model\StockModel.cs" />

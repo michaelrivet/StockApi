@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using StockApiConnection.Core;
+﻿using System.Threading.Tasks;
+using StockApiConnection.Model;
 
 namespace StockApiConnection.Service
 {
-    public interface IConnectionService
+    public interface IConnectionService<TStockModel>
     {
-        Task<short> GetIntervalData(string symbol);
-        Task<short> GetDailyData(string symbol);
+        Task<TStockModel> GetIntervalData(string symbol);
+        Task<TStockModel> GetDailyData(string symbol);
     }
 }

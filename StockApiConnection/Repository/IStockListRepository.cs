@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using StockApiConnection.Core;
 
 namespace StockApiConnection.Repository
 {

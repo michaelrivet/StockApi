@@ -1,20 +1,15 @@
-﻿using System;
+﻿using AlphaAdvantageConsole.AlphaConnection.Core;
+using AlphaAdvantageConsole.AlphaConnection.Model.Alpha;
+using StockApiConnection.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using AlphaAdvantageConsole.AlphaConnection.Core;
-using AlphaAdvantageConsole.AlphaConnection.Model.Alpha;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using StockApiConnection.Core;
-using StockApiConnection.Service;
-using Stock = StockApiConnection.Core.Stock;
-using StockPrice = StockApiConnection.Core.StockPrice;
 
 namespace AlphaAdvantageConsole.AlphaConnection.Service
 {
-    class AlphaConnectionService : IConnectionService
+    class AlphaConnectionService : IConnectionService<AlphaStockModel>
     {
         private readonly string _apiUrl;
         private readonly string _apiKey;
@@ -27,7 +22,7 @@ namespace AlphaAdvantageConsole.AlphaConnection.Service
             _dataBinder = new AlphaStockModelDataBinder();
         }
 
-        public async Task<short> GetDailyData(string symbol)
+        public async Task<AlphaStockModel> GetDailyData(string symbol)
         {
             var parameters = new List<ApiParam>
             {
@@ -37,10 +32,10 @@ namespace AlphaAdvantageConsole.AlphaConnection.Service
 
             var apiData = await CallAlphaVantageApi(BuildRequestUrl(parameters));
 
-            return 12;
+            return apiData;
         }
 
-        public Task<short> GetIntervalData(string symbol)
+        public Task<AlphaStockModel> GetIntervalData(string symbol)
         {
             throw new NotImplementedException();
         }

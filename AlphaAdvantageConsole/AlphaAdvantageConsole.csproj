@@ -55,7 +55,6 @@
     <Compile Include="AlphaConnection\Model\Alpha\AlphaStockDailyModel.cs" />
     <Compile Include="AlphaConnection\Model\Alpha\AlphaStockMetaData.cs" />
     <Compile Include="AlphaConnection\Service\AlphaConnectionService.cs" />
-    <Compile Include="AlphaConnection\Core\AlphaStock.cs" />
     <Compile Include="AlphaConnection\Core\TechnicalDataDate.cs" />
     <Compile Include="AlphaConnection\Core\TechnicalDataObject.cs" />
     <Compile Include="FromGITHUB.cs" />

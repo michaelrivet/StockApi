@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AlphaAdvantageConsole.AlphaConnection.Core;
-using AlphaAdvantageConsole.AlphaConnection.Repositories;
+﻿using AlphaAdvantageConsole.AlphaConnection.Repositories;
 using AlphaAdvantageConsole.AlphaConnection.Service;
-using Stock = StockApiConnection.Core.Stock;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AlphaAdvantageConsole
 {
@@ -29,13 +26,11 @@ namespace AlphaAdvantageConsole
         {
             Console.WriteLine("Start MyCallingMethod");
             var connectionService = new AlphaConnectionService(@"https://www.alphavantage.co/query?", "N6MENFRJNKCIYXSQ");
-            
-            
 
             var res = await
                 connectionService.GetDailyData(stockList[0]);
 
-            Console.WriteLine($"Done MyCallingMethod {res}");
+            Console.WriteLine($"Done MyCallingMethod {res.TimeSeries[0].Close}");
         }
 
     }
