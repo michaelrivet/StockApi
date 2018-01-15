@@ -51,27 +51,26 @@
     <Compile Include="AlphaConnection\Core\AlphaStockModelDataBinder.cs" />
     <Compile Include="AlphaConnection\Core\ApiParam.cs" />
     <Compile Include="AlphaConnection\Enums\AlphaIntradayInterval.cs" />
-    <Compile Include="AlphaConnection\Interface\IConnectionService.cs" />
-    <Compile Include="AlphaConnection\Interface\IStockModelDataBinder.cs" />
     <Compile Include="AlphaConnection\Model\Alpha\AlphaStockModel.cs" />
     <Compile Include="AlphaConnection\Model\Alpha\AlphaStockDailyModel.cs" />
     <Compile Include="AlphaConnection\Model\Alpha\AlphaStockMetaData.cs" />
-    <Compile Include="AlphaConnection\Model\BaseStockModel.cs" />
     <Compile Include="AlphaConnection\Service\AlphaConnectionService.cs" />
-    <Compile Include="AlphaConnection\Core\Stock.cs" />
-    <Compile Include="AlphaConnection\Core\StockList.cs" />
-    <Compile Include="AlphaConnection\Core\StockPrice.cs" />
+    <Compile Include="AlphaConnection\Core\AlphaStock.cs" />
     <Compile Include="AlphaConnection\Core\TechnicalDataDate.cs" />
     <Compile Include="AlphaConnection\Core\TechnicalDataObject.cs" />
-    <Compile Include="AlphaConnection\Interface\IStockApiConnection.cs" />
     <Compile Include="FromGITHUB.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AlphaConnection\Repositories\HardCodedStockListRepository.cs" />
-    <Compile Include="AlphaConnection\Repositories\Interface\IStockListRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StockApiConnection\StockApiConnection.csproj">
+      <Project>{8140a6e8-2718-4c00-a938-97f444199ef8}</Project>
+      <Name>StockApiConnection</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

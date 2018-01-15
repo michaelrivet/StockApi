@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
-using AlphaAdvantageConsole.AlphaConnection.Alpha;
 using Newtonsoft.Json;
+using StockApiConnection.Model;
 
 namespace AlphaAdvantageConsole.AlphaConnection.Model.Alpha
 {
-    public class AlphaStockModel : BaseStockModel
+    public class AlphaStockModel: StockModel<AlphaStockMetaData, AlphaStockDailyModel>
     {
         [JsonProperty("Meta Data")]
-        public AlphaStockMetaData StockMetaData { get; set; }
-        public List<AlphaStockDailyModel> TimeSeries { get; set; }
+        public override AlphaStockMetaData MetaData { get; set; }
+        public override List<AlphaStockDailyModel> TimeSeries { get; set; }
     }
 }

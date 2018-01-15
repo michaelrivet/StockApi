@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AlphaAdvantageConsole.AlphaConnection.Alpha;
-using AlphaAdvantageConsole.AlphaConnection.Interface;
+using StockApiConnection.Core;
 using AlphaAdvantageConsole.AlphaConnection.Model;
 using AlphaAdvantageConsole.AlphaConnection.Model.Alpha;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using StockApiConnection.Service;
 
 namespace AlphaAdvantageConsole.AlphaConnection.Core
 {
-    public class AlphaStockModelDataBinder<T>: IStockModelDataBinder<T> where T : AlphaStockModel
+    public class AlphaStockModelDataBinder: IStockModelDataBinderService<AlphaStockModel>
     {
-        public T GenerateModel(string data)
+        public AlphaStockModel GenerateModelFromJson(string data)
         {
-            var alphaStockModel = JsonConvert.DeserializeObject<T>(data);
+            var alphaStockModel = JsonConvert.DeserializeObject<AlphaStockModel>(data);
             alphaStockModel.TimeSeries = new List<AlphaStockDailyModel>();
 
             var timeSeries = JsonConvert.DeserializeObject<JObject>(data)["Time Series (Daily)"];

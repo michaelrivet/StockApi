@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AlphaAdvantageConsole.AlphaConnection.Core;
 using AlphaAdvantageConsole.AlphaConnection.Repositories;
 using AlphaAdvantageConsole.AlphaConnection.Service;
+using Stock = StockApiConnection.Core.Stock;
 
 namespace AlphaAdvantageConsole
 {
@@ -24,19 +25,15 @@ namespace AlphaAdvantageConsole
             Console.ReadLine();
         }
 
-        public static async Task MikeCallingMethod(StockList stockList)
+        public static async Task MikeCallingMethod(List<string> stockList)
         {
             Console.WriteLine("Start MyCallingMethod");
             var connectionService = new AlphaConnectionService(@"https://www.alphavantage.co/query?", "N6MENFRJNKCIYXSQ");
             
-            var parameters = new List<ApiParam>
-            {
-                new ApiParam("function", "TIME_SERIES_DAILY"),
-                new ApiParam("symbol", stockList.Stocks[0].StockSymbol),
-            };
+            
 
             var res = await
-                connectionService.GetData(parameters, stockList.Stocks[0]);
+                connectionService.GetDailyData(stockList[0]);
 
             Console.WriteLine($"Done MyCallingMethod {res}");
         }

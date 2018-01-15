@@ -1,16 +1,17 @@
 ﻿using Newtonsoft.Json;
+using StockApiConnection.Model;
 
 namespace AlphaAdvantageConsole.AlphaConnection.Model.Alpha
 {
-    public class AlphaStockMetaData
+    public class AlphaStockMetaData : StockMetaData
     {
         [JsonProperty("1. Information")]
-        public string Information { get; set; }
+        public override string Information { get; set; }
         [JsonProperty("2. Symbol")]
-        public string Symbol { get; set; }
+        public override string Symbol { get; set; }
         [JsonProperty("3. Last Refreshed")]
-        public string LastRefreshed { get; set; }
+        public override string LastRefreshed { get; set; }
         [JsonProperty("5. Time Zone")]
-        public string TimeZone { get; set; }
+        public override string TimeZone { get; set; }
     }
 }

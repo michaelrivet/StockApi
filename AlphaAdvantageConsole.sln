@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlphaAdvantageConsole", "AlphaAdvantageConsole\AlphaAdvantageConsole.csproj", "{0FBAD1B5-AF6D-4FEE-953E-9F38355C9991}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockApiConnection", "StockApiConnection\StockApiConnection.csproj", "{8140A6E8-2718-4C00-A938-97F444199EF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{0FBAD1B5-AF6D-4FEE-953E-9F38355C9991}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FBAD1B5-AF6D-4FEE-953E-9F38355C9991}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FBAD1B5-AF6D-4FEE-953E-9F38355C9991}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8140A6E8-2718-4C00-A938-97F444199EF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8140A6E8-2718-4C00-A938-97F444199EF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8140A6E8-2718-4C00-A938-97F444199EF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8140A6E8-2718-4C00-A938-97F444199EF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {319F5E37-29DD-4DA7-943F-A1EED13CC3E7}
 	EndGlobalSection
 EndGlobal

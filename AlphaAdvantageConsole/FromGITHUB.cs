@@ -68,6 +68,8 @@ namespace AlphaAdvantageConsole
             catch (Exception e)
             {
                 //fatal error
+                var errorString = e.Message;
+
                 return null;
             }
         }

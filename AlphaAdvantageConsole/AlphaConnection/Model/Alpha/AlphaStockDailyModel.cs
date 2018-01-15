@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using StockApiConnection.Model;
 
-namespace AlphaAdvantageConsole.AlphaConnection.Alpha
+namespace AlphaAdvantageConsole.AlphaConnection.Model.Alpha
 {
-    public class AlphaStockDailyModel
+    public class AlphaStockDailyModel : StockDailyModel
     {
-        public string Date { get; set; }
+        public override string Date { get; set; }
         [JsonProperty("1. open")]
-        public string Open { get; set; }
+        public override string Open { get; set; }
         [JsonProperty("1. high")]
-        public string High { get; set; }
+        public override string High { get; set; }
         [JsonProperty("1. low")]
-        public string Low { get; set; }
+        public override string Low { get; set; }
         [JsonProperty("1. close")]
-        public string Close { get; set; }
+        public override string Close { get; set; }
         [JsonProperty("1. volume")]
-        public string Volume { get; set; }
+        public override string Volume { get; set; }
     }
 }
