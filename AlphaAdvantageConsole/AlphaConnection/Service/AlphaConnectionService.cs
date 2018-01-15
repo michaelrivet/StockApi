@@ -28,25 +28,32 @@ namespace AlphaAdvantageConsole.AlphaConnection.Service
             var parameters = new List<ApiParam>
             {
                 new ApiParam("function", "TIME_SERIES_DAILY"),
-                new ApiParam("symbol", symbol),
+                new ApiParam("symbol", symbol)
             };
 
-            var apiData = await CallAlphaVantageApi(BuildRequestUrl(parameters));
+            var apiData = await CallAlphaVantageApi(BuildRequestUrl(parameters), "Daily");
 
             return apiData;
         }
 
-        public Task<AlphaStockModel> GetIntervalData(string symbol, IntradayInterval interval)
+        public async Task<AlphaStockModel> GetIntervalData(string symbol, IntradayInterval interval)
         {
-            var intervalString = interval.ToDescription();
-            throw new NotImplementedException();
+            var parameters = new List<ApiParam>
+            {
+                new ApiParam("function", "TIME_SERIES_INTERVAL"),
+                new ApiParam("symbol", symbol),
+                new ApiParam("interval", interval.ToDescription())
+            };
+
+            var apiData = await CallAlphaVantageApi(BuildRequestUrl(parameters), interval.ToDescription());
+            return apiData;
         }
 
-        private async Task<AlphaStockModel> CallAlphaVantageApi(string stringRequest)
+        private async Task<AlphaStockModel> CallAlphaVantageApi(string stringRequest, string interval)
         {
             var client = new HttpClient();
             var res = await client.GetStringAsync(stringRequest);
-            var alphaStock = _dataBinder.GenerateModelFromJson(res);
+            var alphaStock = _dataBinder.GenerateModelFromJson(res, interval);
 
             return alphaStock;
         }

@@ -9,12 +9,12 @@ namespace AlphaAdvantageConsole.AlphaConnection.Core
 {
     public class AlphaStockModelDataBinder: IStockModelDataBinderService<AlphaStockModel>
     {
-        public AlphaStockModel GenerateModelFromJson(string data)
+        public AlphaStockModel GenerateModelFromJson(string data, string interval)
         {
             var alphaStockModel = JsonConvert.DeserializeObject<AlphaStockModel>(data);
             alphaStockModel.TimeSeries = new List<AlphaStockDailyModel>();
 
-            var timeSeries = JsonConvert.DeserializeObject<JObject>(data)["Time Series (Daily)"];
+            var timeSeries = JsonConvert.DeserializeObject<JObject>(data)[$"Time Series ({interval})"];
 
             foreach (var time in timeSeries)
             {

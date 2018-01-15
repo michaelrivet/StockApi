@@ -4,6 +4,6 @@ namespace StockApiConnection.Service
 {
     public interface IStockModelDataBinderService<TStockModel>
     {
-        TStockModel GenerateModelFromJson(string data);
+        TStockModel GenerateModelFromJson(string data, string interval);
     }
 }
