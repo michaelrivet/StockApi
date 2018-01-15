@@ -49,7 +49,6 @@
   <ItemGroup>
     <Compile Include="AlphaConnection.cs" />
     <Compile Include="AlphaConnection\Core\AlphaStockModelDataBinder.cs" />
-    <Compile Include="AlphaConnection\Enums\AlphaIntradayInterval.cs" />
     <Compile Include="AlphaConnection\Model\Alpha\AlphaStockModel.cs" />
     <Compile Include="AlphaConnection\Model\Alpha\AlphaStockDailyModel.cs" />
     <Compile Include="AlphaConnection\Model\Alpha\AlphaStockMetaData.cs" />

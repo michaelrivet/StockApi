@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\EnumHelper.cs" />
+    <Compile Include="Enums\IntradayInterval.cs" />
+    <Compile Include="Enums\EnumDescription.cs" />
     <Compile Include="Service\IStockModelDataBinderService.cs" />
     <Compile Include="Model\StockDailyModel.cs" />
     <Compile Include="Model\StockMetaData.cs" />

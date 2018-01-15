@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using StockApiConnection.Enums;
 
 namespace AlphaAdvantageConsole.AlphaConnection.Service
 {
@@ -35,8 +36,9 @@ namespace AlphaAdvantageConsole.AlphaConnection.Service
             return apiData;
         }
 
-        public Task<AlphaStockModel> GetIntervalData(string symbol)
+        public Task<AlphaStockModel> GetIntervalData(string symbol, IntradayInterval interval)
         {
+            var intervalString = interval.ToDescription();
             throw new NotImplementedException();
         }
 

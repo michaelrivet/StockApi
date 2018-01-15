@@ -13,8 +13,8 @@ namespace AlphaAdvantageConsole
         {
             Console.WriteLine("Start Program");
 
-            var hardCodedStockListRepository = new HardCodedStockListRepository();
-            var stockList = hardCodedStockListRepository.GetSAndPList();
+            var stockListRepository = new HardCodedStockListRepository();
+            var stockList = stockListRepository.GetSAndPList();
             
             await MikeCallingMethod(stockList);
 
