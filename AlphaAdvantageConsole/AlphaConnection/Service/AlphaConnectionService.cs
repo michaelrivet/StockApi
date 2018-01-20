@@ -79,7 +79,7 @@ namespace AlphaAdvantageConsole.AlphaConnection.Service
 
             public string ToApiString()
             {
-                return $"&{ParamName}={ParamValue}";
+                return "&"+ ParamName + "=" + ParamValue;
             }
         }
     }
