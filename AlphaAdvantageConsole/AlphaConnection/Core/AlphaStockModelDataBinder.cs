@@ -14,7 +14,7 @@ namespace AlphaAdvantageConsole.AlphaConnection.Core
             var alphaStockModel = JsonConvert.DeserializeObject<AlphaStockModel>(data);
             alphaStockModel.TimeSeries = new List<AlphaStockDailyModel>();
 
-            var timeSeries = JsonConvert.DeserializeObject<JObject>(data)["Time Series ("+ interval + ")"];
+            var timeSeries = JsonConvert.DeserializeObject<JObject>(data)[$"Time Series ({interval})"];
 
             foreach (var time in timeSeries)
             {

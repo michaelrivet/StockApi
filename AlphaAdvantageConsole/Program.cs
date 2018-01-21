@@ -30,7 +30,7 @@ namespace AlphaAdvantageConsole
             var res = await
                 connectionService.GetDailyData(stockList[0]);
 
-            Console.WriteLine("Done MyCallingMethod " + res.TimeSeries[0].Close);
+            Console.WriteLine($"Done MyCallingMethod {res.TimeSeries[0].Close}");
         }
 
     }
