@@ -52,8 +52,7 @@ pipeline {
 
         stage('DEV: Notify Start') {
             steps {
-                slackSend channel: "${env.SLACK_SEND_CHANNEL}",
-                          message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})" 
+                echo "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})" 
             }
         }
 
@@ -154,15 +153,11 @@ pipeline {
     }
     post {
         success {
-          slackSend channel: "${env.SLACK_SEND_CHANNEL}", 
-                    color: '#00FF00', 
-                    message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
+          echo "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
         }
 
         failure {
-          slackSend channel: "${env.SLACK_SEND_CHANNEL}", 
-                    color: '#FF0000', 
-                    message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
+          echo "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
 
           emailext (
               subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
