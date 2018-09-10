@@ -27,7 +27,7 @@ pipeline {
     }
 
     agent {
-        kubernetes {
+        any {
             label 'dotnet'
             containerTemplate {
                 name "${env.CONTAINER_TEMPLATE_NAME}"
@@ -35,9 +35,6 @@ pipeline {
                 ttyEnabled true
             }
         }
-    }
-    options {
-        withAWS(credentials:'aws-jenkins-deploy-dev')
     }
     stages {
         stage('DEV: Echoing Stage Environment Variables') {
